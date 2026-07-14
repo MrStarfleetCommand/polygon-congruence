@@ -75,5 +75,4 @@ form.addEventListener('submit', event => {
 	}
 
 	alert(projections.length);
-	alert(projections);
 });
