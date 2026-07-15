@@ -5,7 +5,7 @@ form.addEventListener('submit', event => {
 	const n = formData.get('sides');
 	const projections = [];
 
-	for (let i = 0; i < (2 * (n ** n)) / (n ** 2); i++){
+	for (let i = 0; i < ((n ** n) * (((n ** (n - 1)) - 1))) / (((n - 1) ** 2) * (n ** (n - 1))); i++){
 		const x = [];
 		const sequences = {};
 		let invalid;
