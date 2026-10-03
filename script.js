@@ -56,6 +56,17 @@ function newAlgorithm(n) {
 			continue;
 		}
 
+		for (const projection of projections) {
+			if (x.join(',') === projection.join(',')) {
+				invalid = true;
+				break;
+			}
+		}
+
+		if (invalid) {
+			break;
+		}
+
 		projections.push(x);
 	}
 	return projections;
