@@ -39,7 +39,7 @@ function newAlgorithm(n) {
 		}
 
 		for (let v = Math.min(...x); v <= Math.max(...x); v++) {
-			if (!x.includes(v) || Math.max(...sequences[v]) > sequences[0][0]) {
+			if (Math.max(...sequences[v]) > sequences[0][0]) {
 				invalid = true;
 				break;
 			}
