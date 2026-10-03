@@ -18,34 +18,13 @@ function newAlgorithm(n) {
 	const projections = [];
 	for (let i = 0; i < factorialize(n); i++) {
 		const x = [];
-		const sequences = {};
 		let invalid;
 
 		for (let d = 0; d < n; d++) {
-			const v = i % (d + 1);
-
-			if (x.at(-1) === v) {
-				sequences[v][sequences[v].length - 1]++;
-			} else {
-				sequences[v] = sequences[v] || [];
-				sequences[v].push(1);
-			}
-
-			x.push(v);
+			x.push(i % (d + 1));
 		}
 
 		if (Math.max(...x) && !x.at(-1)) {
-			continue;
-		}
-
-		for (let v = Math.min(...x); v <= Math.max(...x); v++) {
-			if (Math.max(...sequences[v]) > sequences[0][0]) {
-				invalid = true;
-				break;
-			}
-		}
-
-		if (invalid) {
 			continue;
 		}
 
