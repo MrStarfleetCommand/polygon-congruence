@@ -16,7 +16,7 @@ function factorialize(n) {
 
 function newAlgorithm(n) {
 	const projections = [];
-	for (let i = 0; i < factorialize(n) / 2; i++) {
+	for (let i = 0; i < factorialize(n); i++) {
 		const x = [];
 		const sequences = {};
 		let invalid;
