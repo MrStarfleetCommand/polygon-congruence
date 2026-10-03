@@ -3,7 +3,7 @@ form.addEventListener('submit', event => {
 	event.preventDefault();
 	const formData = new FormData(form);
 	const n = formData.get('sides');
-	const projections = newAlgorithm(n);
+	const projections = oldAlgorithm(n);
 	alert(projections.length);
 });
 
@@ -14,57 +14,14 @@ function factorialize(n) {
 	return 1;
 }
 
+// DO NOT USE: Unfinished
 function newAlgorithm(n) {
 	const projections = [];
 	for (let i = 0; i < factorialize(n); i++) {
 		const x = [];
-		let invalid;
 
 		for (let d = 0; d < n; d++) {
 			x.push(i % (d + 1));
-		}
-
-		if (Math.max(...x) && !x.at(-1)) {
-			continue;
-		}
-
-		for (const m in x) {
-			if (!m) {
-				continue;
-			}
-			const r = [...x];
-			const mapper = {};
-			let max = 0;
-			for (let d = 0; d < m; d++) {
-				r.push(r[0]);
-				r.shift();
-			}
-			for (const y in r) {
-				if (!Object.hasOwn(mapper, r[y])) {
-					mapper[r[y]] = max;
-					max++;
-				}
-				r[y] = mapper[r[y]];
-			}
-			if (projections.some(p => p.join() === r.join())) {
-				invalid = true;
-				break;
-			}
-		}
-
-		if (invalid) {
-			continue;
-		}
-
-		for (const projection of projections) {
-			if (x.join(',') === projection.join(',')) {
-				invalid = true;
-				break;
-			}
-		}
-
-		if (invalid) {
-			break;
 		}
 
 		projections.push(x);
